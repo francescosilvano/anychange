@@ -1,23 +1,45 @@
 # AnyChange
 
-AnyChange is a local-first Visual Studio Code extension for tracking and applying intentional workspace changes.
+AnyChange is a local-first Visual Studio Code extension for turning repository activity into
+reviewable, intentional changes. It helps developers understand what changed, connect activity
+to work items, and prepare local metadata without requiring a hosted service or sending source
+data to a remote provider.
 
-## Foundation slice
+## What the extension does
 
-The initial slice provides:
+- Captures recent activity from the local Git repository through the `git` executable.
+- Normalizes commit metadata and changed paths into deterministic activity records.
+- Detects Jira-style ticket keys such as `PROJ-123` in commit subjects and paths.
+- Filters common generated, dependency, and repository-noise paths while preserving source changes.
+- Groups activity by ticket key and keeps untagged activity in an explicit ungrouped group.
+- Stores activity locally in a versioned JSON file under the VS Code extension storage directory.
+- Deduplicates repeated captures by repository and commit identity.
+- Uses atomic writes and backup recovery to protect local history.
+- Tracks local review states: `new`, `reviewed`, and `dismissed`.
+- Produces metadata-only draft information with no Jira publishing or hosted-service dependency.
 
-- A TypeScript-based VS Code extension scaffold.
-- A local `WorkspaceState` boundary backed by `ExtensionContext.workspaceState`.
-- The `AnyChange: Open Workspace` command, which initializes local state and reports failures explicitly.
-- Local Git activity capture through the `AnyChange: Capture Local Activity` command.
-- Jira-style ticket-key detection, noise filtering, deterministic grouping, and metadata-only draft output.
-- Durable local activity history with idempotent capture deduplication.
-- Initial local review states: `new`, `reviewed`, and `dismissed`.
+## Implementation plan
 
-The activity pipeline invokes the local `git` executable only. It does not publish to Jira,
-use network services, or persist hosted data. Activity without a detected ticket key is kept
-in an explicit ungrouped bucket. Durable history is stored as a versioned JSON file under
-the VS Code extension storage directory, with atomic replacement and backup recovery.
+### Completed
+
+- ~~Create the TypeScript-based VS Code extension scaffold.~~
+- ~~Add the `AnyChange: Open Workspace` command and local workspace initialization.~~
+- ~~Capture and normalize local Git activity.~~
+- ~~Detect Jira-style ticket keys and filter repository noise.~~
+- ~~Group activity deterministically, including an ungrouped bucket.~~
+- ~~Persist activity locally with schema versioning, atomic replacement, backup recovery, and deduplication.~~
+- ~~Add the initial local review-state model.~~
+- ~~Add a metadata-only draft-provider boundary without remote publishing.~~
+
+### Next
+
+- [ ] Add a review-focused activity view in the VS Code interface.
+- [ ] Allow users to filter and sort persisted activity by ticket, repository path, date, and review state.
+- [ ] Add explicit commands for marking activity as reviewed or dismissed.
+- [ ] Improve repository identity handling for multi-root workspaces.
+- [ ] Add configurable ticket-key patterns and noise-filter rules.
+- [ ] Add draft editing and export while preserving the local-only default.
+- [ ] Add optional provider integrations only after the local review workflow is stable.
 
 ## Development
 
@@ -30,4 +52,8 @@ npm test
 npm run build
 ```
 
-The compiled extension is written to `dist/`. Changes are intentionally uncommitted in this worktree for review.
+The compiled extension is written to `dist/`.
+
+## License
+
+AnyChange is licensed under the [MIT License](https://opensource.org/license/mit/).
