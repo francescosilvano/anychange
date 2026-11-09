@@ -5,6 +5,7 @@ import {
   createActivityPanelModel,
   serializeActivityPanelModel
 } from './activityPanelModel';
+import { resolveStorageDirectory } from './storageLocation';
 
 const panelTitle = 'AnyChange Activity';
 
@@ -41,7 +42,7 @@ export class ActivityPanel {
       return;
     }
 
-    const storageDirectory = context.storageUri?.fsPath;
+    const storageDirectory = resolveStorageDirectory(context);
     if (!storageDirectory) {
       throw new Error('AnyChange local storage is unavailable.');
     }
