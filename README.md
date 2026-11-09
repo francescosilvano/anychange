@@ -16,6 +16,7 @@ data to a remote provider.
 - Deduplicates repeated captures by repository and commit identity.
 - Uses atomic writes and backup recovery to protect local history.
 - Tracks local review states: `new`, `reviewed`, and `dismissed`.
+- Displays persisted activity in the read-only `AnyChange: Open Activity Panel` view.
 - Produces metadata-only draft information with no Jira publishing or hosted-service dependency.
 
 ## Implementation plan
@@ -30,10 +31,11 @@ data to a remote provider.
 - ~~Persist activity locally with schema versioning, atomic replacement, backup recovery, and deduplication.~~
 - ~~Add the initial local review-state model.~~
 - ~~Add a metadata-only draft-provider boundary without remote publishing.~~
+- ~~Add a read-only activity panel with safe local rendering and refresh support.~~
 
 ### Next
 
-- [ ] Add a review-focused activity view in the VS Code interface.
+- [ ] Add review-focused filtering and navigation to the activity panel.
 - [ ] Allow users to filter and sort persisted activity by ticket, repository path, date, and review state.
 - [ ] Add explicit commands for marking activity as reviewed or dismissed.
 - [ ] Improve repository identity handling for multi-root workspaces.
