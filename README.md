@@ -1,5 +1,9 @@
 # AnyChange
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-339933.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Visual Studio Code 1.85+](https://img.shields.io/badge/VS%20Code-1.85%2B-007ACC.svg?logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
+
 AnyChange is a local-first Visual Studio Code extension for turning repository activity into
 reviewable, intentional changes. It helps developers understand what changed, connect activity
 to work items, and prepare local metadata without requiring a hosted service or sending source
