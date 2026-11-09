@@ -19,6 +19,21 @@ data to a remote provider.
 - Displays persisted activity in the read-only `AnyChange: Open Activity Panel` view.
 - Produces metadata-only draft information with no Jira publishing or hosted-service dependency.
 
+### Activity panel
+
+Run **AnyChange: Open Activity Panel** from the Command Palette to inspect all locally
+persisted activity. Each entry displays:
+
+- Repository and commit identity.
+- Branch availability, author, subject, and timestamps.
+- Changed paths and detected Jira keys.
+- Current local review state.
+
+The panel loads fresh data whenever it opens and provides a **Refresh** button for subsequent
+updates. It is intentionally read-only and local-only: it does not edit review states, publish
+to Jira, call hosted services, or make network requests. Branch information is shown as
+unavailable until it is captured in the persisted activity schema.
+
 ## Implementation plan
 
 ### Completed
@@ -73,7 +88,8 @@ VS Code Marketplace:
    is available.
 4. Press **F5** to launch a new Extension Development Host window.
 5. In the Extension Development Host, open a Git repository and run **AnyChange: Open Workspace**
-   or **AnyChange: Capture Local Activity** from the Command Palette.
+   or **AnyChange: Capture Local Activity** from the Command Palette. Then run
+   **AnyChange: Open Activity Panel** to inspect the persisted activity.
 
 The extension runs from the local source and compiled output in `dist/`; no Marketplace
 installation is required. After source changes, stop and restart the Extension Development
