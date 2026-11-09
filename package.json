@@ -14,7 +14,8 @@
   ],
   "activationEvents": [
     "onCommand:anychange.openWorkspace",
-    "onCommand:anychange.captureActivity"
+    "onCommand:anychange.captureActivity",
+    "onCommand:anychange.openActivityPanel"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -26,6 +27,10 @@
       {
         "command": "anychange.captureActivity",
         "title": "AnyChange: Capture Local Activity"
+      },
+      {
+        "command": "anychange.openActivityPanel",
+        "title": "AnyChange: Open Activity Panel"
       }
     ]
   },
