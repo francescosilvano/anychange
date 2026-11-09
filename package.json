@@ -1,0 +1,39 @@
+{
+  "name": "anychange",
+  "displayName": "AnyChange",
+  "description": "A local-first workspace for tracking and applying intentional changes.",
+  "version": "0.1.0",
+  "private": true,
+  "publisher": "francescosilvano",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:anychange.openWorkspace"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "anychange.openWorkspace",
+        "title": "AnyChange: Open Workspace"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/vscode": "^1.96.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
