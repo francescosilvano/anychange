@@ -54,6 +54,29 @@ npm run build
 
 The compiled extension is written to `dist/`.
 
+## Try it locally in VS Code
+
+You can run the extension directly from the repository without installing it from the
+VS Code Marketplace:
+
+1. Clone the repository and open its folder in VS Code.
+2. Install dependencies and build the extension:
+
+   ```sh
+   npm install
+   npm run build
+   ```
+
+3. Open the **Run and Debug** view and select **Run Extension** if a launch configuration
+   is available.
+4. Press **F5** to launch a new Extension Development Host window.
+5. In the Extension Development Host, open a Git repository and run **AnyChange: Open Workspace**
+   or **AnyChange: Capture Local Activity** from the Command Palette.
+
+The extension runs from the local source and compiled output in `dist/`; no Marketplace
+installation is required. After source changes, stop and restart the Extension Development
+Host to load the updated build.
+
 ## License
 
 AnyChange is licensed under the [MIT License](https://opensource.org/license/mit/).
