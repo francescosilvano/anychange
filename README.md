@@ -9,6 +9,30 @@ reviewable, intentional changes. It helps developers understand what changed, co
 to work items, and prepare local metadata without requiring a hosted service or sending source
 data to a remote provider.
 
+## How AnyChange works
+
+The flow below shows the current local-first path from repository activity to reviewable
+metadata. Jira or changelog publishing is intentionally shown as future work, not as an
+available capability.
+
+```mermaid
+flowchart LR
+    A[Local Git repository] --> B[Capture recent commits and paths]
+    B --> C[Normalize activity]
+    C --> D[Detect Jira keys]
+    D --> E[Filter repository noise]
+    E --> F[Deterministic grouping]
+    F --> G[Versioned local JSON persistence]
+    G --> H[Metadata-only draft generation]
+    G --> I[Read-only Activity Panel]
+    I --> J[Review states: new, reviewed, dismissed]
+    H --> K[Future Jira or changelog publishing]
+    K -. not implemented yet .-> L[Local-only boundary]
+```
+
+The Activity Panel reads persisted local values and supports manual refresh; it does not edit
+review states or publish data to Jira, changelog systems, or other hosted services.
+
 ## The problem AnyChange solves
 
 When visiting a furniture store, it is engaging to explore complete room settings because
