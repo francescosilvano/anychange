@@ -9,8 +9,15 @@ The initial slice provides:
 - A TypeScript-based VS Code extension scaffold.
 - A local `WorkspaceState` boundary backed by `ExtensionContext.workspaceState`.
 - The `AnyChange: Open Workspace` command, which initializes local state and reports failures explicitly.
+- Local Git activity capture through the `AnyChange: Capture Local Activity` command.
+- Jira-style ticket-key detection, noise filtering, deterministic grouping, and metadata-only draft output.
+- Durable local activity history with idempotent capture deduplication.
+- Initial local review states: `new`, `reviewed`, and `dismissed`.
 
-No network service or remote persistence is used by this foundation.
+The activity pipeline invokes the local `git` executable only. It does not publish to Jira,
+use network services, or persist hosted data. Activity without a detected ticket key is kept
+in an explicit ungrouped bucket. Durable history is stored as a versioned JSON file under
+the VS Code extension storage directory, with atomic replacement and backup recovery.
 
 ## Development
 
