@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Metadata-only draft-provider boundary with no remote publishing capability.
 - Versioned atomic JSON persistence for local activity history.
 - Idempotent capture deduplication and initial local review-state model.
+- Read-only VS Code activity panel with safe rendering and manual refresh.
 
 ## [0.1.0] - 2026-11-09
 

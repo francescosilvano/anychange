@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { ActivityPanel } from './activityPanel';
 import { groupActivity, normalizeCommits } from './activityPipeline';
 import { MetadataOnlyDraftProvider } from './draftProvider';
 import { LocalGitAdapter } from './gitAdapter';
@@ -67,7 +68,21 @@ export function activate(context: vscode.ExtensionContext): void {
     }
   );
 
-  context.subscriptions.push(openWorkspace, captureActivity);
+  const openActivityPanel = vscode.commands.registerCommand(
+    'anychange.openActivityPanel',
+    () => {
+      try {
+        ActivityPanel.open(context);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        void vscode.window.showErrorMessage(
+          `AnyChange could not open the activity panel: ${message}`
+        );
+      }
+    }
+  );
+
+  context.subscriptions.push(openWorkspace, captureActivity, openActivityPanel);
 }
 
 export function deactivate(): void {}
