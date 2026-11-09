@@ -9,6 +9,28 @@ reviewable, intentional changes. It helps developers understand what changed, co
 to work items, and prepare local metadata without requiring a hosted service or sending source
 data to a remote provider.
 
+## The problem AnyChange solves
+
+When visiting a furniture store, it is engaging to explore complete room settings because
+seeing tables, chairs, and lighting together makes their aesthetic and practical possibilities
+easier to understand. Software work benefits from the same kind of context: a list of isolated
+commits or tickets rarely shows how individual changes fit together as a coherent piece of work.
+
+AnyChange turns local repository activity into a reviewable view of that context:
+
+- **Developers** can see which commits and files belong together before preparing a change.
+- **Product managers** can connect work-item keys to the implementation activity behind a feature.
+- **Software engineers** can review authors, subjects, paths, timestamps, and local review states
+  in one place.
+- **QA engineers** can use the captured paths and grouped activity to identify what deserves
+  validation.
+- **Technical leads and reviewers** can distinguish new, reviewed, and dismissed activity without
+  relying on a hosted service.
+
+The goal is not to replace source control or project management tools. It is to make the shape and
+context of local changes easier to explore before deciding what should become a formal draft or
+review.
+
 ## What the extension does
 
 - Captures recent activity from the local Git repository through the `git` executable.
