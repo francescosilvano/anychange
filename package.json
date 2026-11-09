@@ -13,7 +13,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:anychange.openWorkspace"
+    "onCommand:anychange.openWorkspace",
+    "onCommand:anychange.captureActivity"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -21,6 +22,10 @@
       {
         "command": "anychange.openWorkspace",
         "title": "AnyChange: Open Workspace"
+      },
+      {
+        "command": "anychange.captureActivity",
+        "title": "AnyChange: Capture Local Activity"
       }
     ]
   },

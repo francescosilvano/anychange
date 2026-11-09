@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `AnyChange: Open Workspace` command.
 - Local workspace state boundary backed by VS Code extension storage.
 - TypeScript checks and focused unit tests.
+- Local Git activity capture and normalization.
+- Jira-style ticket-key detection, noise filtering, and deterministic grouping.
+- Metadata-only draft-provider boundary with no remote publishing capability.
+- Versioned atomic JSON persistence for local activity history.
+- Idempotent capture deduplication and initial local review-state model.
 
 ## [0.1.0] - 2026-11-09
 
